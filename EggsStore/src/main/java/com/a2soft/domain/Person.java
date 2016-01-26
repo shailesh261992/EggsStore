@@ -2,17 +2,17 @@ package com.a2soft.domain;
 
 public class Person {
 
-	private int id;
+	private long id;
 	private Name name;
 	private Address address;
 	private MobileNumber mobileNo;
 	private EmailID emailID;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -51,9 +51,9 @@ public class Person {
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		long result = 1;
 		result = prime * result + id;
-		return result;
+		return (int) result;
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class Person {
 		if (getClass() != obj.getClass())
 			return false;
 		Person other = (Person) obj;
-		if(other.getId() ==0){
+		if (other.getId() == 0) {
 			return false;
 		}
 		if (id != other.id)
@@ -75,16 +75,15 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [Id = " + id + " ]";
+		return "Person [id=" + id + ", name=" + name + ", address=" + address + ", mobileNo=" + mobileNo + ", emailID="
+				+ emailID + "]";
 	}
 
 	public void copyFrom(Person person) {
 		this.address = person.address;
 		this.emailID = person.emailID;
 		this.mobileNo = person.mobileNo;
-		
-		
-		
+
 	}
 
 }
